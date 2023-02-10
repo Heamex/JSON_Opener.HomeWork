@@ -8,10 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+	
+	private var unpacker: Unpacker?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		
+		unpacker = Unpacker()
+		
+		let data = unpacker?.getJsonData()
+		if let jsonString = unpacker?.getJsonString() {
+			let movie = unpacker?.getMovie(from: jsonString)
+			print(movie)
+		}
 	}
 
 
